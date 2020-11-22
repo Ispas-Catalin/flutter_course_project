@@ -30,7 +30,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Currency convertor'),
+        centerTitle: true,
+      ),
       body: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
         controller: _scrollController,
