@@ -50,7 +50,8 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: EdgeInsets.all(12.0),
               child: TextField(
-                keyboardType: TextInputType.numberWithOptions(signed: false, decimal: true) ,
+                keyboardType: TextInputType.numberWithOptions(
+                    signed: false, decimal: true),
                 onChanged: (String value) {
                   _scrollController.animateTo(
                     _scrollController.position.maxScrollExtent,
@@ -69,7 +70,10 @@ class _HomePageState extends State<HomePage> {
                 child: Text('Convert!'),
                 onPressed: () {
                   setState(() {
-                    if (double.tryParse(resValue) != null) {
+                    if (resValue == null) {
+                      errorText = 'please enter a number';
+                      _visible = 0.0;
+                    } else if (double.tryParse(resValue) != null) {
                       errorText = null;
                       _visible = 1.0;
                       res = double.parse(resValue) * 4.5;
@@ -86,7 +90,6 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                   fontSize: 50,
                   color: Colors.grey,
-
                 ),
               ),
             ),
