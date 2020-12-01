@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         controller: _scrollController,
         child: Column(
           children: <Widget>[
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(12.0),
               child: TextField(
                 keyboardType: const TextInputType.numberWithOptions(
                     signed: false, decimal: true),
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             RaisedButton(
-                child: Text('Convert!'),
+                child: const Text('Convert!'),
                 onPressed: () {
                   setState(() {
                     if (resValue == null) {

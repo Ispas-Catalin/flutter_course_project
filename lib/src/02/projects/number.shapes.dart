@@ -101,12 +101,10 @@ String generateResText(int number) {
   else
     isCube = false;
 
-  if (isSquare && isCube)
-    return '$number is both a SQUARE and TRIANGULAR.';
+  if (isSquare && isCube) return '$number is both a SQUARE and TRIANGULAR.';
   if (!isSquare && !isCube)
     return '$number is neither a SQUARE nor a TRIANGULAR.';
-  if (isSquare && !isCube)
-    return '$number is a SQUARE.';
+  if (isSquare && !isCube) return '$number is a SQUARE.';
   if (!isSquare && isCube)
     return '$number is a TRIANGULAR.';
   else
