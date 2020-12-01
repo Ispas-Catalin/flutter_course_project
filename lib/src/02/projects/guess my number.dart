@@ -97,20 +97,22 @@ class _HomePageState extends State<HomePage> {
                         padding: EdgeInsets.all(8.0),
                         child: RaisedButton(
                           onPressed: () {
-                            if(!ok){
-                              errorText = 'Please imput a number';
-                              _isVisible = false;
-                            }
-                            if(ok){
-                              errorText = null;
-                              _isVisible = true;
-                              if(myNumber>numberValue)
-                                hintText = 'You tried $numberValue\nTry Higher';
-                              if(myNumber<numberValue)
-                                hintText = 'You tried $numberValue\nTry Lower';
-                              if(myNumber == numberValue)
-                                hintText = 'you are correct';
-                            }
+                            setState(() {
+                              if(!ok){
+                                errorText = 'Please imput a number';
+                                _isVisible = false;
+                              }
+                              if(ok){
+                                errorText = null;
+                                _isVisible = true;
+                                if(myNumber>numberValue)
+                                  hintText = 'You tried $numberValue\nTry Higher';
+                                if(myNumber<numberValue)
+                                  hintText = 'You tried $numberValue\nTry Lower';
+                                if(myNumber == numberValue)
+                                  hintText = 'you are correct';
+                              }
+                            });
                           },
                           child: Text('Guess'),
                         ),
