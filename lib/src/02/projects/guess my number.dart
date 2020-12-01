@@ -1,5 +1,6 @@
-import 'package:flutter/material.dart';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,10 +20,10 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-Random random = new Random ();
+Random random = Random();
 
 String hintText = 'You tryed 52';
-String errorText = null;
+String errorText;
 bool _isVisible = false;
 bool ok;
 int numberValue;
@@ -84,37 +85,40 @@ class _HomePageState extends State<HomePage> {
                         decoration: InputDecoration(
                           errorText: errorText,
                         ),
-                        onChanged: (String value){
-                          if(int.tryParse(value) == null)
+                        onChanged: (String value) {
+                          if (int.tryParse(value) == null)
                             ok = false;
-                          else{
+                          else {
                             ok = true;
                             numberValue = int.parse(value);
                           }
                         },
                       ),
                       Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(8.0),
                         child: RaisedButton(
                           onPressed: () {
                             setState(() {
-                              if(!ok){
+                              if (!ok) {
                                 errorText = 'Please imput a number';
                                 _isVisible = false;
                               }
-                              if(ok){
+                              if (ok) {
                                 errorText = null;
                                 _isVisible = true;
-                                if(myNumber>numberValue)
-                                  hintText = 'You tried $numberValue\nTry Higher';
-                                if(myNumber<numberValue)
-                                  hintText = 'You tried $numberValue\nTry Lower';
-                                if(myNumber == numberValue)
+                                if (myNumber > numberValue)
+                                  hintText =
+                                      'You tried $numberValue\nTry Higher';
+                                if (myNumber < numberValue)
+                                  hintText =
+                                      'You tried $numberValue\nTry Lower';
+                                if (myNumber == numberValue) {
                                   hintText = 'you are correct';
+                                }
                               }
                             });
                           },
-                          child: Text('Guess'),
+                          child: const Text('Guess'),
                         ),
                       )
                     ],

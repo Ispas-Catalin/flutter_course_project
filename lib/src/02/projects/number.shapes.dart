@@ -42,81 +42,73 @@ class _HomePageState extends State<HomePage> {
               'Please input a number to see if it is square or triangle.',
               style: TextStyle(color: Colors.black, fontSize: 20),
             ),
-           Padding(
-              padding: EdgeInsets.only(top: 8.0),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
               child: TextField(
-                keyboardType:
-                    const TextInputType.numberWithOptions(signed: false, decimal: false),
+                keyboardType: const TextInputType.numberWithOptions(
+                    signed: false, decimal: false),
                 decoration: InputDecoration(
                   errorText: errorText,
                 ),
-                onChanged:(String value){
-                  if(int.tryParse(value) == null)
+                onChanged: (String value) {
+                  if (int.tryParse(value) == null)
                     ok = false;
-                  else{
+                  else {
                     ok = true;
                     numberValue = int.parse(value);
                   }
-                } ,
+                },
               ),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.check),
-        onPressed: () {
-          setState(() {
-              if(ok == false){
+          child: const Icon(Icons.check),
+          onPressed: () {
+            setState(() {
+              if (ok == false) {
                 errorText = 'Please input a number';
-              }
-              else{
+              } else {
                 errorText = null;
               }
-          });
-          if(ok){
-
-            showDialog<Widget>(context: context,
-              builder: (BuildContext context){
-              return AlertDialog(
-                title: Text(numberValue.toString()),
-                content: Text(generateResText(numberValue)),
-              );
-              }
-            );
-          }
-        }
-      ),
+            });
+            if (ok) {
+              showDialog<Widget>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text(numberValue.toString()),
+                      content: Text(generateResText(numberValue)),
+                    );
+                  });
+            }
+          }),
     );
   }
 }
 
-String generateResText(int number){
+String generateResText(int number) {
   bool isSquare, isCube;
 
-  if(pow(number, 1/2).toInt() == pow(number, 1/2))
+  if (pow(number, 1 / 2).toInt() == pow(number, 1 / 2))
     isSquare = true;
   else
     isSquare = false;
 
-  if(pow(number, 1/3).toInt() == pow(number, 1/3))
+  if (pow(number, 1 / 3).toInt() == pow(number, 1 / 3))
     isCube = true;
   else
     isCube = false;
 
   if (isSquare && isCube)
     return '$number is both a SQUARE and TRIANGULAR.';
-  if(!isSquare && !isCube)
+  if (!isSquare && !isCube)
     return '$number is neither a SQUARE nor a TRIANGULAR.';
-  if(isSquare && !isCube)
-    return'$number is a SQUARE.';
-  if(!isSquare && isCube)
-    return'$number is a TRIANGULAR.';
+  if (isSquare && !isCube)
+    return '$number is a SQUARE.';
+  if (!isSquare && isCube)
+    return '$number is a TRIANGULAR.';
   else
     return '';
-
 }
-
-
-
-
