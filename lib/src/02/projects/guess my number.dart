@@ -105,9 +105,11 @@ class _HomePageState extends State<HomePage> {
                               if (ok) {
                                 errorText = null;
                                 _isVisible = true;
-                                if (myNumber > numberValue) hintText = 'You tried $numberValue\nTry Higher';
-                                if (myNumber < numberValue) hintText = 'You tried $numberValue\nTry Lower';
-                                if (myNumber == numberValue) {
+                                if (myNumber > numberValue)
+                                  hintText = 'You tried $numberValue\nTry Higher';
+                                else if (myNumber < numberValue)
+                                  hintText = 'You tried $numberValue\nTry Lower';
+                                else if (myNumber == numberValue) {
                                   hintText = 'you are correct';
                                 }
                               }
