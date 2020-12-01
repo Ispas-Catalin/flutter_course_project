@@ -80,8 +80,7 @@ class _HomePageState extends State<HomePage> {
                         textAlign: TextAlign.center,
                       ),
                       TextField(
-                        keyboardType: const TextInputType.numberWithOptions(
-                            signed: false, decimal: false),
+                        keyboardType: const TextInputType.numberWithOptions(signed: false, decimal: false),
                         decoration: InputDecoration(
                           errorText: errorText,
                         ),
@@ -106,12 +105,8 @@ class _HomePageState extends State<HomePage> {
                               if (ok) {
                                 errorText = null;
                                 _isVisible = true;
-                                if (myNumber > numberValue)
-                                  hintText =
-                                      'You tried $numberValue\nTry Higher';
-                                if (myNumber < numberValue)
-                                  hintText =
-                                      'You tried $numberValue\nTry Lower';
+                                if (myNumber > numberValue) hintText = 'You tried $numberValue\nTry Higher';
+                                if (myNumber < numberValue) hintText = 'You tried $numberValue\nTry Lower';
                                 if (myNumber == numberValue) {
                                   hintText = 'you are correct';
                                 }

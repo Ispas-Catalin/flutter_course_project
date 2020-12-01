@@ -45,8 +45,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: TextField(
-                keyboardType: const TextInputType.numberWithOptions(
-                    signed: false, decimal: false),
+                keyboardType: const TextInputType.numberWithOptions(signed: false, decimal: false),
                 decoration: InputDecoration(
                   errorText: errorText,
                 ),
@@ -101,11 +100,13 @@ String generateResText(int number) {
   else
     isCube = false;
 
-  if (isSquare && isCube) return '$number is both a SQUARE and TRIANGULAR.';
-  if (!isSquare && !isCube)
+  if (isSquare && isCube)
+    return '$number is both a SQUARE and TRIANGULAR.';
+  else if (!isSquare && !isCube)
     return '$number is neither a SQUARE nor a TRIANGULAR.';
-  if (isSquare && !isCube) return '$number is a SQUARE.';
-  if (!isSquare && isCube)
+  else if (isSquare && !isCube)
+    return '$number is a SQUARE.';
+  else if (!isSquare && isCube)
     return '$number is a TRIANGULAR.';
   else
     return '';

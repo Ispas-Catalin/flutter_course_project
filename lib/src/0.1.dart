@@ -50,8 +50,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: const EdgeInsets.all(12.0),
               child: TextField(
-                keyboardType: const TextInputType.numberWithOptions(
-                    signed: false, decimal: true),
+                keyboardType: const TextInputType.numberWithOptions(signed: false, decimal: true),
                 onChanged: (String value) {
                   _scrollController.animateTo(
                     _scrollController.position.maxScrollExtent,
