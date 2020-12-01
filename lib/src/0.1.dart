@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Currency convertor'),
+        title: const Text('Currency convertor'),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: <Widget>[
             Container(
-              padding: EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
+              padding: const EdgeInsets.fromLTRB(8.0, 0.0, 0.0, 0.0),
               child: Image.asset(
                 'assets/images/lei.jpg',
                 width: MediaQuery.of(context).size.width,
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: EdgeInsets.all(12.0),
               child: TextField(
-                keyboardType: TextInputType.numberWithOptions(
+                keyboardType: const TextInputType.numberWithOptions(
                     signed: false, decimal: true),
                 onChanged: (String value) {
                   _scrollController.animateTo(
@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
               opacity: _visible,
               child: Text(
                 res.toStringAsFixed(2) + ' RON',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 50,
                   color: Colors.grey,
                 ),
