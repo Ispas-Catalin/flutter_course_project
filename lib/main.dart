@@ -1,4 +1,4 @@
-import 'src/02/projects/number.shapes.dart' as app;
+import 'src/03/tic tac toe.dart' as app;
 
 void main() {
   app.main();

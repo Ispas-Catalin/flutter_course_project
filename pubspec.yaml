@@ -12,6 +12,7 @@ dependencies:
   keyboard_visibility: ^0.5.2
   http: ^0.12.2
   path: ^1.7.0
+  assets_audio_player: ^2.0.13
 
   flutter:
     sdk: flutter
@@ -25,4 +26,9 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/lei.jpg
+    - assets/images/X.jpg
+    - assets/images/O.jpg
+    - assets/images/transparent.jpg
+    - assets/audio/ciao.mp3
+
 
