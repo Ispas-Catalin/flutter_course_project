@@ -252,10 +252,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 '$announcementText',
-                style: const TextStyle(
-                  color: Colors.grey,
-                  fontSize: 38
-                ),
+                style: const TextStyle(color: Colors.grey, fontSize: 38),
               ),
             ),
           ),
@@ -296,10 +293,10 @@ void checkGame() {
     gameStage[5] + gameStage[4] + gameStage[3],
     gameStage[8] + gameStage[7] + gameStage[6],
   ];
-  if(counter == 9){
-    gameOk=false;
+  if (counter == 9) {
+    gameOk = false;
     announceWinner(-1);
-    winnerOk=false;
+    winnerOk = false;
   }
   for (int i = 0; i <= 7; i++) {
     if (check[i] == 30) {
@@ -318,9 +315,7 @@ void checkGame() {
 }
 
 void announceWinner(int animationType) {
-
-  if(animationType == -1)
-  {
+  if (animationType == -1) {
     announcementText = 'Tie!';
   }
 

@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:assets_audio_player/assets_audio_player.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -33,8 +32,7 @@ List<String> textStrings = [
   'La revedere\n(Italiana)',
 ];
 
-class _HomePageState extends State<HomePage>
-{
+class _HomePageState extends State<HomePage> {
   final AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
 
   @override
@@ -72,7 +70,7 @@ class _HomePageState extends State<HomePage>
                 child: MaterialButton(
                   minWidth: double.infinity,
                   height: double.infinity,
-                  onPressed: (){
+                  onPressed: () {
                     assetsAudioPlayer.open(
                       Audio('assets/audio/ciao.mp3'),
                     );
