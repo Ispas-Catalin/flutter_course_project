@@ -1,56 +1,41 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
+
 import 'package:http/http.dart';
 
-Future <void> main() async{
-  runApp(MyApp());
-  final Response response = await get('https://www.worldometers.info/geography/flags-of-the-world/');
-  final String data = response.body;
+// ignore: always_specify_types
+List<String> _movieTitle = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+// ignore: always_specify_types
+List<String> _movieImage = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+// ignore: always_specify_types
+List<String> _backroundImage = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+// ignore: always_specify_types
+List<String> _movieYear = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+// ignore: always_specify_types
+List<String> _movieRating = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+// ignore: always_specify_types
+List<String> _movieGenre = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
 
-  final List<String> items = data.split('<a href="/img/flags');
-  for (final String item in items.skip(1)) {
-    flagUrlList.add('https://www.worldometers.info/img/flags${item.split('"')[0]}');
-
-    const String pattern = 'padding-top:10px">';
-    countryNameList.add(item.substring(item.indexOf(pattern) + pattern.length, item.indexOf('</div>')));
-
+Future<void> main() async {
+  final Response response = await get('https://yts.mx/api/v2/list_movies.json');
+  final Map<String, dynamic> map = jsonDecode(response.body);
+  for (int i = 0; i <= 19; i++) {
+    _backroundImage[i] = map['data']['movies'][i]['background_image'];
+    _movieTitle[i] = map['data']['movies'][i]['title'];
+    _movieImage[i] = map['data']['movies'][i]['medium_cover_image'];
+    _movieYear[i] = map['data']['movies'][i]['year'].toString();
+    _movieRating[i] = map['data']['movies'][i]['rating'].toString();
+    _movieGenre[i] = map['data']['movies'][i]['genres'][0];
   }
-  print(flagUrlList);
+
+  print(map['data']['movies'][0]['title']);
+  print(map['data']['movies'][0]['year'].toString());
+
+  print(map['data']['movies'][1]['title']);
+  print(map['data']['movies'][1]['year'].toString());
+
+  print(map['data']['movies'][2]['title']);
+  print(map['data']['movies'][2]['year'].toString());
+
+  print(map['data']['movies'][2]['title']);
+  print(map['data']['movies'][3]['year'].toString());
 }
-
-List<String> countryNameList;
-List<String> flagUrlList;
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: GridView.builder(
-        itemCount: 195,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 8,
-          mainAxisSpacing: 8,
-        ),
-        itemBuilder: (BuildContext context, int index) {
-          return Container();
-        },
-      ),
-    );
-  }
-}
-
